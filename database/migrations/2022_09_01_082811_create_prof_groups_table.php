@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prof_levels', function (Blueprint $table) {
+        Schema::create('prof_groups', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('parent_id')->nullable();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('slug');
             $table->string('code');
             $table->boolean('active');
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prof_levels');
+        Schema::dropIfExists('prof_groups');
     }
 };

@@ -11,10 +11,19 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('prof_classifiers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('prof_group_id');
+            $table->unsignedInteger('prof_level_id');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('slug');
+            $table->string('code');
+            $table->string('isce-2011')->nullable();
+            $table->string('isce-2013')->nullable();
+            $table->boolean('active');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -25,7 +34,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('prof_classifiers');
     }

@@ -15,21 +15,75 @@ namespace App\Models{
  * App\Models\ProfClassifier
  *
  * @property int $id
+ * @property int|null $parent_id
+ * @property string $name
+ * @property string|null $description
+ * @property string $slug
+ * @property string $code
+ * @property string|null $isce-2011
+ * @property string|null $isce-2013
+ * @property int $active
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier newQuery()
  * @method static \Illuminate\Database\Query\Builder|ProfClassifier onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereIsce2011($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereIsce2013($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|ProfClassifier withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Query\Builder|ProfClassifier withoutTrashed()
  */
 	class ProfClassifier extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ProfGroup
+ *
+ * @property int $id
+ * @property int|null $parent_id
+ * @property string $name
+ * @property string|null $description
+ * @property string $slug
+ * @property string $code
+ * @property int $active
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup newQuery()
+ * @method static \Illuminate\Database\Query\Builder|ProfGroup onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ProfGroup withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Query\Builder|ProfGroup withoutTrashed()
+ */
+	class ProfGroup extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -41,6 +95,7 @@ namespace App\Models{
  * @property string $description
  * @property string $slug
  * @property string $code
+ * @property int $active
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -49,6 +104,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel newQuery()
  * @method static \Illuminate\Database\Query\Builder|ProfLevel onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel whereDeletedAt($value)

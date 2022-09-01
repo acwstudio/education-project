@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ProfClassifier extends Model
+class ProfGroup extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
 
-    protected $fillable = ['name','code','description','active','slug','isce-2011'];
+    protected $fillable = ['name','code','description','active','slug'];
 
     /**
      * Return the sluggable configuration array for this model.

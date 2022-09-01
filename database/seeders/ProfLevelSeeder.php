@@ -15,17 +15,18 @@ class ProfLevelSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         DB::table('prof_levels')->truncate();
 
         $levels = config('data-seed.prof-levels');
-        
+
         foreach ($levels as $key=>$level) {
             DB::table('prof_levels')->insert([
                 'name'        => $level['name'],
                 'description' => $level['description'],
                 'slug'        => SlugService::createSlug(ProfLevel::class, 'slug', $level['name']),
+                'active'      => true,
                 'code'        => $level['code'],
                 'created_at'  => now(),
             ]);
