@@ -25,8 +25,14 @@ final class ProfLevelRepository
 
     }
 
-    public function show($id)
+    /**
+     * @param int $id
+     * @return QueryBuilder
+     */
+    public function show(int $id): QueryBuilder
     {
-
+        return QueryBuilder::for(ProfLevel::class)
+            ->where('id', $id)
+            ->allowedIncludes(['profClassifiers']);
     }
 }
