@@ -63,8 +63,8 @@ class ClassifierImport implements ToCollection
                 'description' => $level->first()->description,
                 'slug' => SlugService::createSlug(ProfClassifier::class, 'slug', $item[1]),
                 'code' => $item['code'],
-                'isce-2011' => $item['isce-2011'],
-                'isce-2013' => $item['isce-2013'],
+                'isce_2011' => $item['isce-2011'],
+                'isce_2013' => $item['isce-2013'],
                 'active' => true,
                 'created_at' => now()
             ]);

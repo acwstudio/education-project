@@ -11,6 +11,8 @@ class ProfLevel extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
 
+    const TYPE_RESOURCE = 'profLevel';
+
     /**
      * Return the sluggable configuration array for this model.
      *

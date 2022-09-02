@@ -13,6 +13,8 @@ class ProfGroup extends Model
 
     protected $fillable = ['name','code','description','active','slug'];
 
+    const TYPE_RESOURCE = 'profGroup';
+
     /**
      * Return the sluggable configuration array for this model.
      *

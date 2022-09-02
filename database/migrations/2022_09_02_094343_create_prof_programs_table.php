@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('prof_programs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('organization_id');
+            $table->unsignedInteger('prof_classifier_id');
             $table->boolean('is_moderated')->default(false);
             $table->boolean('is_published')->default(false);
             $table->string('name');
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('prof_programs');
     }
 };

@@ -15,13 +15,14 @@ namespace App\Models{
  * App\Models\ProfClassifier
  *
  * @property int $id
- * @property int|null $parent_id
+ * @property int $prof_group_id
+ * @property int $prof_level_id
  * @property string $name
  * @property string|null $description
  * @property string $slug
  * @property string $code
- * @property string|null $isce-2011
- * @property string|null $isce-2013
+ * @property string|null $isce_2011
+ * @property string|null $isce_2013
  * @property int $active
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -40,7 +41,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereIsce2011($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereIsce2013($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereProfGroupId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereProfLevelId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|ProfClassifier withTrashed()
@@ -122,7 +124,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Program
+ * App\Models\ProfProgram
  *
  * @property string $id
  * @property string $organization_id
@@ -135,25 +137,25 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Program newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Program newQuery()
- * @method static \Illuminate\Database\Query\Builder|Program onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Program query()
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereIsModerated($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereIsPublished($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereOrganizationId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program wherePrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Program whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|Program withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Program withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram newQuery()
+ * @method static \Illuminate\Database\Query\Builder|ProfProgram onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereIsModerated($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereIsPublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereOrganizationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ProfProgram withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ProfProgram withoutTrashed()
  */
-	class Program extends \Eloquent {}
+	class ProfProgram extends \Eloquent {}
 }
 
 namespace App\Models{
