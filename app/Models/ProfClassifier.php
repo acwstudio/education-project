@@ -11,7 +11,12 @@ class ProfClassifier extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
 
-    protected $fillable = ['name','code','description','active','slug','isce-2011'];
+    const TYPE_RESOURCE = 'profClassifier';
+
+    protected $fillable = [
+        'prof_group_id','prof_level_id','prof_classifier_id','name','description','slug',
+        'isce-2011','code','active',
+    ];
 
     /**
      * Return the sluggable configuration array for this model.

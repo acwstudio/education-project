@@ -21,8 +21,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('slug');
             $table->string('code');
-            $table->string('isce-2011')->nullable();
-            $table->string('isce-2013')->nullable();
+            $table->string('isce_2011')->nullable();
+            $table->string('isce_2013')->nullable();
             $table->boolean('active');
             $table->softDeletes();
             $table->timestamps();

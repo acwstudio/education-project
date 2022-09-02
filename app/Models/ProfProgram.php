@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Program extends Model
+class ProfProgram extends Model
 {
     use HasFactory, UUIDGenerator, SoftDeletes;
+
+    const TYPE_RESOURCE = 'profProgram';
 }
