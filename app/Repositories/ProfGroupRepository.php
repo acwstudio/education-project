@@ -16,7 +16,7 @@ final class ProfGroupRepository
     public function index(): QueryBuilder
     {
         return QueryBuilder::for(ProfGroup::class)
-            ->allowedIncludes([''])
+            ->allowedIncludes(['profClassifiers','parent'])
             ->allowedFilters([''])
             ->allowedSorts(['']);
     }

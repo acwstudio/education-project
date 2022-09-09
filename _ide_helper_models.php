@@ -27,6 +27,10 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\ProfGroup|null $profGroup
+ * @property-read \App\Models\ProfLevel|null $profLevel
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfProgram[] $profPrograms
+ * @property-read int|null $prof_programs_count
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfClassifier newQuery()
@@ -66,6 +70,11 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|ProfGroup[] $children
+ * @property-read int|null $children_count
+ * @property-read ProfGroup|null $parent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfClassifier[] $profClassifiers
+ * @property-read int|null $prof_classifiers_count
  * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfGroup newQuery()
@@ -101,6 +110,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfClassifier[] $profClassifiers
+ * @property-read int|null $prof_classifiers_count
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfLevel newQuery()
@@ -128,6 +139,7 @@ namespace App\Models{
  *
  * @property string $id
  * @property string $organization_id
+ * @property int $prof_classifier_id
  * @property int $is_moderated
  * @property int $is_published
  * @property string $name
@@ -150,6 +162,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereOrganizationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereProfClassifierId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfProgram whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|ProfProgram withTrashed()

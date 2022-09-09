@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\ProfClassifiers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\ProfGroups\ProfGroupCollection;
-use App\Services\ProfGroupService;
+use App\Http\Resources\Api\ProfClassifiers\ProfClassifierCollection;
+use App\Services\ProfClassifierService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class ProfGroupController extends Controller
+class ProfClassifierController extends Controller
 {
     /**
-     * @var ProfGroupService
+     * @var ProfClassifierService
      */
-    private ProfGroupService $profGroupService;
+    private ProfClassifierService $profClassifierService;
 
     /**
-     * @param ProfGroupService $profGroupService
+     * @param ProfClassifierService $profClassifierService
      */
-    public function __construct(ProfGroupService $profGroupService)
+    public function __construct(ProfClassifierService $profClassifierService)
     {
-        $this->profGroupService = $profGroupService;
+        $this->profClassifierService = $profClassifierService;
     }
 
     /**
@@ -33,9 +33,9 @@ class ProfGroupController extends Controller
     {
         $perPage = $request->get('per_page');
 
-        $profGroup = $this->profGroupService->index()->paginate($perPage);
+        $profClassifier = $this->profClassifierService->index()->paginate($perPage);
 
-        return (new ProfGroupCollection($profGroup))->response();
+        return(new ProfClassifierCollection($profClassifier))->response();
     }
 
     /**

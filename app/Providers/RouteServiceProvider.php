@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Routing\Concerns\MapsRouteRegistrars;
 use App\Routing\Registrars\DefaultRegistrar;
-use App\Routing\Registrars\ProgramRegistrar;
+use App\Routing\Registrars\ProfProgramRegistrar;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected array $registrars = [
         DefaultRegistrar::class,
-        ProgramRegistrar::class
+        ProfProgramRegistrar::class
     ];
 
     /**
@@ -40,7 +40,9 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function (Registrar $router) {
-            $this->mapRoutes($router, $this->registrars);
+//            $this->group(['prefix' => 'api/v1', 'middleware' => 'api'], function (Registrar $router) {
+                $this->mapRoutes($router, $this->registrars);
+//            });
         });
     }
 

@@ -42,6 +42,11 @@ class ProfLevelResource extends JsonResource
                         'related' => '',
                     ],
                     'data' => ProfClassifierIdentifierResource::collection($this->whenLoaded('profClassifiers'))
+                ],
+                'children' => [
+                    'links' => [
+//                        'self' => route()
+                    ]
                 ]
             ]
         ];
@@ -55,5 +60,4 @@ class ProfLevelResource extends JsonResource
 
         return $relations;
     }
-
 }
