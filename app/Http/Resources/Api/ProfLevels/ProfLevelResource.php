@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources\Api\ProfLevels;
 
+use App\Http\Resources\Api\ProfClassifiers\ProfClassifierIdentifierResource;
+use App\Http\Resources\Api\ProfClassifiers\ProfClassifierResource;
+use App\Http\Resources\Concerns\IncludeRelatedEntitiesResourceTrait;
 use App\Models\ProfLevel;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -10,6 +13,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class ProfLevelResource extends JsonResource
 {
+    use IncludeRelatedEntitiesResourceTrait;
+
     /**
      * Transform the resource into an array.
      *
@@ -28,7 +33,7 @@ class ProfLevelResource extends JsonResource
                 'code'        => $this->code,
                 'active'      => $this->active,
                 'created_at'  => $this->created_at,
-                'update_at'  => $this->updated_at,
+                'update_at'   => $this->updated_at,
             ],
             'relationships' => [
                 'profClassifiers' => [
@@ -36,9 +41,23 @@ class ProfLevelResource extends JsonResource
                         'self' => '',
                         'related' => '',
                     ],
-                    'data' => ''
+                    'data' => ProfClassifierIdentifierResource::collection($this->whenLoaded('profClassifiers'))
+                ],
+                'children' => [
+                    'links' => [
+//                        'self' => route()
+                    ]
                 ]
             ]
         ];
+    }
+
+    protected function relations(): array
+    {
+        $relations = [
+            ProfClassifierResource::class   => $this->whenLoaded('profClassifiers'),
+        ];
+
+        return $relations;
     }
 }

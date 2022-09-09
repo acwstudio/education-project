@@ -40,22 +40,22 @@ class ProfClassifierResource extends JsonResource
             'relationships' => [
                 'profGroup' => [
                     'links' => [
-                        'self' => '',
-                        'related' => ''
+                        'self' => route('prof-classifiers.relationships.prof-group', ['id' => $this->id]),
+                        'related' => route('prof-classifiers.prof-group', ['id' => $this->id]),
                     ],
                     'data' => new ProfGroupResource($this->whenLoaded('profGroup'))
                 ],
                 'profLevel' => [
                     'links' => [
-                        'self' => '',
-                        'related' => ''
+                        'self' => route('prof-classifiers.relationships.prof-level', ['id' => $this->id]),
+                        'related' => route('prof-classifiers.prof-level', ['id' => $this->id])
                     ],
                     'data' => new ProfLevelResource($this->whenLoaded('profLevel'))
                 ],
                 'profProgams' => [
                     'links' => [
-                        'self' => '',
-                        'related' => ''
+                        'self' => route('prof-classifier.relationships.prof-programs', ['id' => $this->id]),
+                        'related' => route('prof-classifier.prof-programs', ['id' => $this->id])
                     ],
                     'data' => new ProfProgramCollection($this->whenLoaded('profPrograms'))
                 ]

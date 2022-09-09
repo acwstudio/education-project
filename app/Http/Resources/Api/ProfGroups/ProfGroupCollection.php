@@ -2,10 +2,13 @@
 
 namespace App\Http\Resources\Api\ProfGroups;
 
+use App\Http\Resources\Concerns\IncludeRelatedEntitiesCollectionTrait;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ProfGroupCollection extends ResourceCollection
 {
+    use IncludeRelatedEntitiesCollectionTrait;
+
     /**
      * Transform the resource collection into an array.
      *
@@ -14,6 +17,9 @@ class ProfGroupCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'data'     => $this->collection,
+            'included' => $this->mergeIncludedRelations($request),
+        ];
     }
 }

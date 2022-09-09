@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources\Api\ProfGroups;
 
+use App\Http\Resources\Api\ProfClassifiers\ProfClassifierIdentifierResource;
+use App\Http\Resources\Api\ProfClassifiers\ProfClassifierResource;
+use App\Http\Resources\Concerns\IncludeRelatedEntitiesResourceTrait;
 use App\Models\ProfGroup;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -10,6 +13,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class ProfGroupResource extends JsonResource
 {
+    use IncludeRelatedEntitiesResourceTrait;
+
     /**
      * Transform the resource into an array.
      *
@@ -34,19 +39,37 @@ class ProfGroupResource extends JsonResource
             'relationships' => [
                 'parent' => [
                     'links' => [
-                        'self' => '', //route('category.relationships.parent', ['id' => $this->id]),
-                        'related' => '', // route('category.parent', ['id' => $this->id])
+                        'self' => route('prof-group.relationships.parent', ['id' => $this->id]),
+                        'related' => route('prof-group.parent', ['id' => $this->id])
                     ],
                     'data' => new ProfGroupIdentifierResource($this->whenLoaded('parent'))
                 ],
                 'children' => [
                     'links' => [
-                        'self' => '', //route('category.relationships.children', ['id' => $this->id]),
-                        'related' => '' //route('category.children', ['id' => $this->id])
+                        'self' => route('prof-group.relationships.children', ['id' => $this->id]),
+                        'related' => route('prof-group.children', ['id' => $this->id])
                     ],
                     'data' => ProfGroupIdentifierResource::collection($this->whenLoaded('children'))
+                ],
+                'classifiers' => [
+                    'links' => [
+                        'self' => route('prof-group.relationships.prof-classifiers', ['id' => $this->id]),
+                        'related' => route('prof-group.prof-classifiers', ['id' => $this->id])
+                    ],
+                    'data' => ProfClassifierIdentifierResource::collection($this->whenLoaded('classifiers'))
                 ]
             ]
         ];
+    }
+
+    protected function relations(): array
+    {
+        $relations = [
+            ProfClassifierResource::class   => $this->whenLoaded('profClassifiers'),
+            ProfGroupResource::class        => $this->whenLoaded('parent'),
+//            ProfGroupResource::class        => $this->whenLoaded('children'),
+        ];
+
+        return $relations;
     }
 }
