@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 
-namespace App\Repositories;
+namespace App\Repositories\Api;
 
-use App\Models\ProfProgram;
+use App\Models\ProfClassifier;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final class ProfProgramRepository
+final class ProfClassifierRepository
 {
     /**
      * @return QueryBuilder
      */
     public function index(): QueryBuilder
     {
-        return QueryBuilder::for(ProfProgram::class)
+        return QueryBuilder::for(ProfClassifier::class)
             ->allowedIncludes([''])
             ->allowedFilters([''])
             ->allowedSorts(['']);
