@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 
-namespace App\Services;
+namespace App\Services\Api;
 
-use App\Repositories\ProfProgramRepository;
+use App\Repositories\Api\ProfProgramRepository;
 use Spatie\QueryBuilder\QueryBuilder;
 
 final class ProfProgramService
 {
     /**
-     * @var ProfProgramRepository
+     * @var \App\Repositories\Api\ProfProgramRepository
      */
     public ProfProgramRepository $profProgramRepository;
 
     /**
-     * @param ProfProgramRepository $profProgramRepository
+     * @param \App\Repositories\Api\ProfProgramRepository $profProgramRepository
      */
     public function __construct(ProfProgramRepository $profProgramRepository)
     {

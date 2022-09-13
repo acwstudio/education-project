@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Api\ProfClassifiers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\ProfClassifiers\ProfClassifierCollection;
-use App\Services\ProfClassifierService;
+use App\Services\Api\ProfClassifierService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ProfClassifierController extends Controller
 {
     /**
-     * @var ProfClassifierService
+     * @var \App\Services\Api\ProfClassifierService
      */
     private ProfClassifierService $profClassifierService;
 
     /**
-     * @param ProfClassifierService $profClassifierService
+     * @param \App\Services\Api\ProfClassifierService $profClassifierService
      */
     public function __construct(ProfClassifierService $profClassifierService)
     {

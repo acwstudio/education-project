@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\ProfGroups;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\ProfGroups\ProfGroupCollection;
 use App\Models\ProfGroup;
-use App\Services\ProfGroupService;
+use App\Services\Api\ProfGroupService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class ProfGroupController extends Controller
     private ProfGroupService $profGroupService;
 
     /**
-     * @param ProfGroupService $profGroupService
+     * @param \App\Services\Api\ProfGroupService $profGroupService
      */
     public function __construct(ProfGroupService $profGroupService)
     {

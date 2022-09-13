@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\ProfLevels;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\ProfLevels\ProfLevelCollection;
-use App\Services\ProfLevelService;
+use App\Services\Api\ProfLevelService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

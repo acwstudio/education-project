@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Services\Api;
 
-use App\Repositories\ProfLevelRepository;
+use App\Repositories\Api\ProfLevelRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -16,7 +16,7 @@ final class ProfLevelService
     public ProfLevelRepository $profLevelRepository;
 
     /**
-     * @param ProfLevelRepository $profLevelRepository
+     * @param \App\Repositories\Api\ProfLevelRepository $profLevelRepository
      */
     public function __construct(ProfLevelRepository $profLevelRepository)
     {

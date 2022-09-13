@@ -40,9 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function (Registrar $router) {
-//            $this->group(['prefix' => 'api/v1', 'middleware' => 'api'], function (Registrar $router) {
-                $this->mapRoutes($router, $this->registrars);
-//            });
+            $this->mapRoutes($router, $this->registrars);
         });
     }
 

@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'organizations' => [
+        'url' => env('ORGANIZATION_URL'),
+        'token' => env('ORGANIZATION_TOKEN'),
+    ],
 ];

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\ProfPrograms;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\ProfPrograms\ProfProgramCollection;
-use App\Services\ProfProgramService;
+use App\Services\Api\ProfProgramService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class ProfProgramController extends Controller
     private ProfProgramService $profProgramService;
 
     /**
-     * @param ProfProgramService $profProgramService
+     * @param \App\Services\Api\ProfProgramService $profProgramService
      */
     public function __construct(ProfProgramService $profProgramService)
     {
