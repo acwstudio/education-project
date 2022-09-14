@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api\ProfGroups;
 
+use App\Http\Resources\Api\ProfClassifiers\ProfClassifierCollection;
 use App\Http\Resources\Api\ProfClassifiers\ProfClassifierIdentifierResource;
 use App\Http\Resources\Api\ProfClassifiers\ProfClassifierResource;
 use App\Http\Resources\Concerns\IncludeRelatedEntitiesResourceTrait;
@@ -65,9 +66,9 @@ class ProfGroupResource extends JsonResource
     protected function relations(): array
     {
         $relations = [
-            ProfClassifierResource::class   => $this->whenLoaded('profClassifiers'),
-            ProfGroupResource::class        => $this->whenLoaded('parent'),
-//            ProfGroupResource::class        => $this->whenLoaded('children'),
+            ProfClassifierCollection::class   => $this->whenLoaded('profClassifiers'),
+            ProfGroupResource::class          => $this->whenLoaded('parent'),
+            ProfGroupCollection::class        => $this->whenLoaded('children'),
         ];
 
         return $relations;
