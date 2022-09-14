@@ -35,7 +35,7 @@ class ProfGroup extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return hasOne
      */
     public function parent(): hasOne
     {
